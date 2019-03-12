@@ -81,7 +81,7 @@ class Critic(nn.Module):
         self.reset_parameters()
 
     def reset_parameters(self):
-         """ Initialize weights of neural network."""
+        """ Initialize weights of neural network."""
         self.fcs1.weight.data.uniform_(*hidden_init(self.fcs1))
         self.fc2.weight.data.uniform_(*hidden_init(self.fc2))
         self.fc3.weight.data.uniform_(-3e-3, 3e-3)
