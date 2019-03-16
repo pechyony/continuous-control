@@ -51,7 +51,7 @@ Follow the instructions in `Continuous-Integration.ipynb` to train the agent.
 
 # Files
 
-Continuous-Integration.ipynb - notebook that trains an agent and runs it through the environment  
+Continuous_Control.ipynb - notebook that trains an agent and runs it through the environment  
 project_report.md - technical details of training environment and process  
 checkpoint.pth - weights of the actor neural network of DDPG algorithm  
 code - folder with Python files that implement DDPG algorithm  
