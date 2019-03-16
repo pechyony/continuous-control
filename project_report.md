@@ -109,7 +109,7 @@ The following table lists the architecture of local and target critic networks.
 |Hidden Layer| Fully Connected   | 404    | 300     | Batch Normalization + ReLU                |
 |Output Layer| Fully Connected   | 300    | 1      | Linear        |
 
-We tuned the values of hyperparameters to solve the environment. The next table summarizes the our final values of hyperparameters:
+The weights in the first two layers were initialized using Glorot initialization. The weights from the last layer were initialized from a uniform distribution [-1e-3,1e-3]. We tuned the values of hyperparameters to solve the environment. The next table summarizes the our final values of hyperparameters:
 
 | Hyperparameter | Description | Value |
 |:--------------:|:-----------:|:-----:|
@@ -125,6 +125,9 @@ We tuned the values of hyperparameters to solve the environment. The next table 
 | NOISE_START | Initial value of noise scaling factor | 1 |
 | NOISE_END | Minimal value of noise scaling factor | 0.01 |
 | NOISE_DECAY | Decay rate of noise scaling factor | 0.995 |
+| &mu; | mean value of Ornstein-Unlenbeck process | 0 |
+| &theta; | growth rate of Ornstein-Unlenbeck process | 0.15 |
+| &sigma; | standard deviation of Ornstein-Unlenbeck process | 0.2 |
 
 ## Software packages
 
@@ -142,7 +145,7 @@ And here is the video of the trained agents following the target locations:
 
 ## Ideas for Future Work
 
-While we were able to solve the environment and reach an average reward of 30, there are some agents that still have mediocre performance. For example the central agent in the first row. It would be interesting to try to reach a worst-case reward of 30 by tuning hyperparameters. 
+While we were able to solve the environment and reach an average reward of 30 across all agents, there are some agents that still have mediocre performance. For example the central agent in the first row. It would be interesting to try to reach the  worst-case reward of 30 by tuning hyperparameters. 
 
 Another direction for future work is to try other algorithms that generate continuous actions (e.g. [TRPO](https://arxiv.org/pdf/1502.05477.pdf), [PPO](https://arxiv.org/pdf/1707.06347.pdf) and [D4PG](https://openreview.net/forum?id=SyZipzbCb)) and see if they can solve Reacher environment substantially faster than DDPG.
 
